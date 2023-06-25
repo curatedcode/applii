@@ -15,10 +15,10 @@ export const applications = sqliteTable("applications", {
   benefits: text("benefits"),
   status: text("status").$type<ApplicationStatus>().notNull(),
   notes: text("notes"),
-  dateCreated: integer("dateCreated").default(sql`CURRENT_TIMESTAMP`),
-  dateApplied: integer("dateApplied").default(sql`CURRENT_TIMESTAMP`),
-  dateInterviewed: integer("dateInterviewed").default(sql`CURRENT_TIMESTAMP`),
-  dateDenied: integer("dateDenied").default(sql`CURRENT_TIMESTAMP`),
+  dateCreated: text("dateCreated").default(sql`CURRENT_TIMESTAMP`),
+  dateApplied: text("dateApplied").default(sql`CURRENT_TIMESTAMP`),
+  dateInterviewed: text("dateInterviewed").default(sql`CURRENT_TIMESTAMP`),
+  dateDenied: text("dateDenied").default(sql`CURRENT_TIMESTAMP`),
 });
 
 export type ApplicationStatus =
