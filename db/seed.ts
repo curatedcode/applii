@@ -19,21 +19,18 @@ async function create(applicationsToCreate: number) {
     .map((_, i) => i);
 
   for await (const num of toCreate) {
-    const companyId = createId();
-
-    db.insert(companies)
+    const company = await db
+      .insert(companies)
       .values({
-        id: companyId,
         name: faker.company.name(),
         logoUrl: faker.image.url({ height: 64, width: 64 }),
       })
       .returning({ id: companies.id })
-      .values();
+      .all();
 
     db.insert(contacts)
       .values({
-        id: createId(),
-        companyId,
+        companyId: company[0].id,
         name: faker.person.fullName(),
         email: faker.internet.email(),
         phoneNumber: faker.phone.number(),
@@ -43,8 +40,7 @@ async function create(applicationsToCreate: number) {
 
     db.insert(applications)
       .values({
-        id: createId(),
-        companyId,
+        companyId: company[0].id,
         position: num % 2 === 0 ? "Software Engineer" : "Software Developer",
         location: faker.location.city(),
         summary: faker.lorem.paragraphs(),

@@ -3,8 +3,8 @@ import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
 import { db } from "./db";
 
 export const applications = sqliteTable("applications", {
-  id: text("id").primaryKey(),
-  companyId: text("companyId")
+  id: integer("id", { mode: "number" }).primaryKey({ autoIncrement: true }),
+  companyId: integer("companyId", { mode: "number" })
     .notNull()
     .references(() => companies.id),
   position: text("position").notNull(),
@@ -41,7 +41,7 @@ export const insertApplication = async (application: NewApplication) => {
 };
 
 export const companies = sqliteTable("companies", {
-  id: text("id").primaryKey(),
+  id: integer("id", { mode: "number" }).primaryKey({ autoIncrement: true }),
   name: text("name").notNull(),
   logoUrl: text("logoUrl").notNull(),
   notes: text("notes"),
@@ -54,8 +54,8 @@ export const insertCompany = async (company: NewCompany) => {
 };
 
 export const contacts = sqliteTable("contacts", {
-  id: text("id").primaryKey(),
-  companyId: text("companyId")
+  id: integer("id", { mode: "number" }).primaryKey({ autoIncrement: true }),
+  companyId: integer("companyId", { mode: "number" })
     .notNull()
     .references(() => companies.id),
   name: text("name").notNull(),
