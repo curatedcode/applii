@@ -13,6 +13,7 @@
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
     "@nuxt/devtools": "latest",
+    "@nuxtjs/tailwindcss": "^6.8.0",
     "@types/node": "^18",
     "drizzle-kit": "^0.19.2",
     "nuxt": "^3.6.0",
