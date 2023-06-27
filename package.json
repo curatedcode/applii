@@ -6,24 +6,28 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "db-generate": "drizzle-kit generate:sqlite --config=db/migration.config.ts",
-    "db-push": "drizzle-kit push:sqlite --config=db/push.config.ts",
-    "db-seed": "ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} db/seed.ts"
+    "test:unit": "vitest --coverage"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
     "@nuxt/devtools": "latest",
+    "@nuxt/test-utils": "^3.6.0",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@types/node": "^18",
-    "drizzle-kit": "^0.19.2",
+    "@vitest/coverage-v8": "^0.32.2",
     "nuxt": "^3.6.0",
+    "prisma": "^4.16.1",
     "ts-node": "^10.9.1",
-    "typescript": "latest"
+    "typescript": "^5.0.4",
+    "vitest": "^0.32.2"
   },
   "dependencies": {
-    "@libsql/client": "^0.2.2",
     "@paralleldrive/cuid2": "^2.2.1",
-    "drizzle-orm": "^0.27.0",
+    "@prisma/client": "4.16.1",
+    "dayjs": "^1.11.8",
     "zod": "^3.21.4"
   }
 }

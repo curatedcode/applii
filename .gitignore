@@ -25,3 +25,6 @@ logs
 # Database files
 db/migrations
 local.db
+
+# Testing
+coverage

@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  custom-image {
+    background-image: url("/img-placeholder.png");
+  }
+}

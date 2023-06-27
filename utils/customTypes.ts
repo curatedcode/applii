@@ -1,5 +1,4 @@
 import { Status } from "@prisma/client";
-import { z } from "zod";
 
 export const statusArray: Status[] = [
   "needToApply",
