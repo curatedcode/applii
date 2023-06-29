@@ -38,7 +38,7 @@ enum Status {
 
 model Company {
   id            String        @id @default(uuid())
-  name          String
+  name          String        @unique
   logoUrl       String
   notes         String?
   applications  Application[]
