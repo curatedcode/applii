@@ -7,7 +7,7 @@
         <NuxtLink to="/">
           <img src="/favicon.ico" alt="Applii Logo" class="p-2 w-14" />
         </NuxtLink>
-        <ul class="flex gap-4">
+        <ul class="flex gap-4 font-medium">
           <li>
             <NuxtLink
               to="/"
